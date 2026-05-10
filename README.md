@@ -26,10 +26,29 @@ Production-ready Spring Boot JWT Authentication Starter Kit.
 
 ## Tech Stack
 
-- Spring Boot
+### Backend
+- Java 21
+- Spring Boot 3.x
+- Spring Security 6
+- Spring Data JPA
+- Hibernate
+
+### Authentication
+- JWT (JSON Web Token)
+- BCrypt Password Encryption
+
+### Database
 - PostgreSQL
+
+### Documentation
+- Swagger / OpenAPI
+
+### Build Tool
 - Maven
-- Docker
+
+### DevOps
+- Docker (upcoming)
+- Kubernetes (upcoming)
 
 ## Run Application
 
