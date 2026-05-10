@@ -23,6 +23,21 @@ Production-ready Spring Boot JWT Authentication Starter Kit.
 - Clean Enterprise Project Structure
 - Docker Ready (upcoming)
 - Kubernetes Ready (upcoming)
+- JWT Authentication Middleware
+- Protected REST APIs
+- Swagger JWT Authorization Support
+- Stateless Authentication
+- Custom UserDetailsService
+- SecurityContext Integration
+
+## Security Architecture
+
+- JWT Token Authentication
+- Stateless Session Management
+- Spring Security Filter Chain
+- Custom JWT Authentication Filter
+- SecurityContext-Based Authentication
+- Role-Based Authorization
 
 ## Tech Stack
 
@@ -63,8 +78,20 @@ Production-ready Spring Boot JWT Authentication Starter Kit.
 |--------|----------|-------------|
 | POST | `/auth/register` | Register a new user |
 | POST | `/auth/login` | Authenticate user and generate JWT token |
+| GET | `/users/me` | Get logged-in user details (Protected API) |
 
 ---
+
+## JWT Authentication
+
+1. Register or login using authentication APIs.
+2. Copy the generated JWT token.
+3. Click the **Authorize** button in Swagger UI.
+4. Add token in this format:
+
+```txt
+Bearer your_jwt_token
+
 
 ## Sample Register Request
 
@@ -103,3 +130,8 @@ Production-ready Spring Boot JWT Authentication Starter Kit.
 ### Login API
 
 ![Login API](screenshots/login-api.png)
+
+### Protected API Access
+
+![Protected API](screenshots/protected-api.png)
+
