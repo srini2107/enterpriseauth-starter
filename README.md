@@ -85,3 +85,21 @@ Production-ready Spring Boot JWT Authentication Starter Kit.
 {
   "token": "eyJhbGciOiJIUzI1NiJ9..."
 }
+
+## Screenshots
+
+### Swagger UI
+
+![Swagger UI](screenshots/swagger-home.png)
+
+---
+
+### Register API
+
+![Register API](screenshots/register-api.png)
+
+---
+
+### Login API
+
+![Login API](screenshots/login-api.png)
