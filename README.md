@@ -35,6 +35,10 @@ Production-ready Spring Boot JWT Authentication Starter Kit.
 - Custom Exception Classes
 - Professional Error Responses
 - Input Validation with Jakarta Validation
+- Refresh Token Authentication
+- Token Rotation
+- Logout Token Revocation
+- Session Lifecycle Management
 
 ## Security Architecture
 
@@ -180,5 +184,12 @@ Bearer your_jwt_token
 
 ### Validation Error Response
 ![Validation Error](screenshots/validation-error.png)
+
+### Refresh API
+![Refresh API](screenshots/Refresh-before-logout-api.png)
+![Refresh API](screenshots/Refresh-after-logout-api.png)
+
+### Logout API
+![Logout API](screenshots/Logout-api.png)
 
 
