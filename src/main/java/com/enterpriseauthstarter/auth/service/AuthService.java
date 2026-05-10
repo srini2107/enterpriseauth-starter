@@ -5,6 +5,7 @@ import com.enterpriseauthstarter.auth.entity.Role;
 import com.enterpriseauthstarter.auth.entity.User;
 import com.enterpriseauthstarter.auth.repository.UserRepository;
 import com.enterpriseauthstarter.auth.security.JwtUtil;
+import com.enterpriseauthstarter.exception.BadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class AuthService {
     public AuthResponse register(RegisterRequest request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("Email already exists");
+            throw new BadRequestException("Email already exists");
         }
 
         User user = User.builder()
@@ -42,10 +43,10 @@ public class AuthService {
     public AuthResponse login(LoginRequest request) {
 
         User user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new RuntimeException("Invalid credentials"));
+                .orElseThrow(() -> new BadRequestException("Invalid credentials"));
 
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-            throw new RuntimeException("Invalid credentials");
+            throw new BadRequestException("Invalid credentials");
         }
 
         String token = jwtUtil.generateToken(user.getEmail());
