@@ -29,6 +29,12 @@ Production-ready Spring Boot JWT Authentication Starter Kit.
 - Stateless Authentication
 - Custom UserDetailsService
 - SecurityContext Integration
+- Global Exception Handling
+- Validation-Based Request Handling
+- Structured API Responses
+- Custom Exception Classes
+- Professional Error Responses
+- Input Validation with Jakarta Validation
 
 ## Security Architecture
 
@@ -64,6 +70,49 @@ Production-ready Spring Boot JWT Authentication Starter Kit.
 ### DevOps
 - Docker (upcoming)
 - Kubernetes (upcoming)
+
+## Request Validation
+
+EnterpriseAuth Starter includes validation support using Jakarta Validation.
+
+### Supported Validations
+
+- Required field validation
+- Email format validation
+- Password length validation
+
+### Example Validation Error Response
+
+```json
+{
+  "success": false,
+  "message": "Invalid email format",
+  "data": null
+}
+
+### Supported Exceptions
+
+- BadRequestException
+- ResourceNotFoundException
+- Validation Exceptions
+- Generic Server Exceptions
+
+## Standard API Response Format
+
+### Success Response
+
+```json
+{
+  "success": true,
+  "message": "Request successful",
+  "data": {}
+}
+Error Response
+{
+  "success": false,
+  "message": "Invalid credentials",
+  "data": null
+}
 
 ## Run Application
 
@@ -116,22 +165,20 @@ Bearer your_jwt_token
 ## Screenshots
 
 ### Swagger UI
-
 ![Swagger UI](screenshots/swagger-home.png)
-
 ---
 
 ### Register API
-
 ![Register API](screenshots/register-api.png)
-
 ---
 
 ### Login API
-
 ![Login API](screenshots/login-api.png)
 
 ### Protected API Access
-
 ![Protected API](screenshots/protected-api.png)
+
+### Validation Error Response
+![Validation Error](screenshots/validation-error.png)
+
 
