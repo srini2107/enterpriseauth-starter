@@ -388,9 +388,9 @@ Bearer your_access_token
 ---
 
 ## Refresh Token API
-![Refresh API](screenshots/Refresh-before-logout.png)
+![Refresh API](screenshots/refresh-before-logout.png)
 
-![Refresh API](screenshots/Refresh-after-logout.png)
+![Refresh API](screenshots/refresh-after-logout.png)
 
 ---
 
