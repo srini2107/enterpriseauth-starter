@@ -388,7 +388,7 @@ Bearer your_access_token
 ---
 
 ## Validation Error
-![Validation Error](screenshots/validation-error.png)
+![Validation Error](screenshots/vaidation-error.png)
 
 ---
 
