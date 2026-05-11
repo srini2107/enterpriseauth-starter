@@ -372,6 +372,11 @@ Bearer your_access_token
 
 ---
 
+## Authorize Bearer API
+![Authorize API](screenshots/authorize-bearer.png)
+
+---------
+
 ## Login API
 ![Login API](screenshots/login-api.png)
 
