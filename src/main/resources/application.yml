@@ -3,9 +3,9 @@ spring:
     name: enterprise-auth
 
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/enterprise_auth_db}
-    username: ${SPRING_DATASOURCE_USERNAME:postgres}
-    password: ${SPRING_DATASOURCE_PASSWORD:root}
+    url: jdbc:postgresql://localhost:5432/enterprise_auth_db
+    username: postgres
+    password: root
 
   jpa:
     hibernate:
@@ -22,4 +22,4 @@ server:
 
 jwt:
   secret: ${JWT_SECRET:mySuperSecretKeyForEnterpriseAuthStarter123456}
-  expiration: 100000
+  expiration: 900000
