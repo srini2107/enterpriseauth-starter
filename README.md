@@ -402,7 +402,11 @@ Bearer your_access_token
 ## Logout API
 ![Logout API](screenshots/logout-api.png)
 
----
+## Postman Collection
+
+Import the Postman collection for quick API testing:
+
+postman/enterprise-auth-postman-collection.json
 
 # 🚀 Upcoming Features
 
