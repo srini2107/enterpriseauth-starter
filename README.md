@@ -1,109 +1,294 @@
-# EnterpriseAuth Starter
+# EnterpriseAuth Starter 🚀
 
-Production-ready Spring Boot JWT Authentication Starter Kit.
+Production-ready Spring Boot JWT Authentication Starter Kit built with Spring Boot 3, Spring Security 6, PostgreSQL, JWT, Refresh Tokens, Role-Based Authorization, and Docker-ready architecture.
 
-## Features
+EnterpriseAuth Starter provides a scalable and reusable authentication foundation for enterprise-grade backend applications.
 
-- Spring Boot 3.x
-- Java 21
+---
+
+# ✨ Features
+
+## 🔐 Authentication
 - JWT Authentication
+- Stateless Authentication
+- Access Token + Refresh Token Architecture
 - User Registration API
 - User Login API
-- BCrypt Password Encryption
-- Role-Based Authorization
-- Spring Security 6
-- PostgreSQL Integration
-- JPA/Hibernate
-- UUID-Based Primary Keys
-- Global Security Configuration
-- Swagger/OpenAPI Documentation
-- RESTful API Architecture
-- Maven Build Configuration
-- Audit Fields (createdAt, updatedAt)
-- Clean Enterprise Project Structure
-- Docker Ready (upcoming)
-- Kubernetes Ready (upcoming)
-- JWT Authentication Middleware
-- Protected REST APIs
-- Swagger JWT Authorization Support
-- Stateless Authentication
-- Custom UserDetailsService
-- SecurityContext Integration
-- Global Exception Handling
-- Validation-Based Request Handling
-- Structured API Responses
-- Custom Exception Classes
-- Professional Error Responses
-- Input Validation with Jakarta Validation
 - Refresh Token Authentication
-- Token Rotation
 - Logout Token Revocation
 - Session Lifecycle Management
 
-## Security Architecture
+---
 
-- JWT Token Authentication
-- Stateless Session Management
-- Spring Security Filter Chain
-- Custom JWT Authentication Filter
-- SecurityContext-Based Authentication
+## 🛡️ Authorization
 - Role-Based Authorization
+- USER / ADMIN Roles
+- Role Hierarchy Support
+- Protected REST APIs
+- Method-Level Security with `@PreAuthorize`
 
-## Tech Stack
+---
 
-### Backend
+## 🔒 Security
+- Spring Security 6
+- JWT Authentication Middleware
+- Custom JWT Authentication Filter
+- SecurityContext Integration
+- BCrypt Password Encryption
+- Global Security Configuration
+- Custom UserDetailsService
+
+---
+
+## ⚠️ Exception Handling
+- Global Exception Handling
+- Structured API Responses
+- Professional Error Responses
+- Validation Exception Handling
+- Custom Exception Classes
+
+---
+
+## ✅ Validation
+- Jakarta Validation
+- Email Validation
+- Password Validation
+- Request Payload Validation
+
+---
+
+## 🗄️ Database
+- PostgreSQL Integration
+- Spring Data JPA
+- Hibernate ORM
+- UUID-Based Primary Keys
+- Audit Fields (`createdAt`, `updatedAt`)
+
+---
+
+## 📘 API Documentation
+- Swagger / OpenAPI Integration
+- Swagger JWT Authorization Support
+
+---
+
+## 🏗️ Architecture
+- RESTful API Architecture
+- Clean Enterprise Project Structure
+- Modular Package Organization
+- Production-Ready Design
+
+---
+
+## 🚀 DevOps
+- Docker Ready
+- Environment Variable Support
+- Kubernetes Ready (Upcoming)
+
+---
+
+# 🏛️ Security Architecture
+
+EnterpriseAuth Starter follows enterprise-grade stateless JWT authentication architecture.
+
+## Authentication Flow
+
+```text
+User Login
+    ↓
+Generate Access Token + Refresh Token
+    ↓
+Access Protected APIs
+    ↓
+Access Token Expires
+    ↓
+Refresh Token Generates New Access Token
+    ↓
+Logout Revokes Refresh Token
+```
+
+---
+
+# 🧰 Tech Stack
+
+## Backend
 - Java 21
 - Spring Boot 3.x
 - Spring Security 6
 - Spring Data JPA
 - Hibernate
 
-### Authentication
+## Authentication
 - JWT (JSON Web Token)
 - BCrypt Password Encryption
 
-### Database
+## Database
 - PostgreSQL
 
-### Documentation
+## Documentation
 - Swagger / OpenAPI
 
-### Build Tool
+## Build Tool
 - Maven
 
-### DevOps
-- Docker (upcoming)
-- Kubernetes (upcoming)
+## DevOps
+- Docker
+- Kubernetes (Upcoming)
 
-## Request Validation
+---
 
-EnterpriseAuth Starter includes validation support using Jakarta Validation.
+# 📂 Project Structure
 
-### Supported Validations
+```text
+src/main/java/com/enterpriseauthstarter
+│
+├── auth
+│   ├── controller
+│   ├── dto
+│   ├── entity
+│   ├── repository
+│   ├── security
+│   └── service
+│
+├── admin
+│   └── controller
+│
+├── user
+│   └── controller
+│
+├── config
+├── exception
+├── common
+└── util
+```
 
-- Required field validation
-- Email format validation
-- Password length validation
+---
 
-### Example Validation Error Response
+# ▶️ Run Application
 
-```json
-{
-  "success": false,
-  "message": "Invalid email format",
-  "data": null
-}
+## Clone Repository
 
-### Supported Exceptions
+```bash
+git clone https://github.com/srini2107/enterpriseauth-starter.git
+```
 
-- BadRequestException
-- ResourceNotFoundException
-- Validation Exceptions
-- Generic Server Exceptions
+---
 
-## Standard API Response Format
+## Configure PostgreSQL
 
-### Success Response
+Update:
+
+```yaml
+application.yml
+```
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/enterprise_auth_db
+    username: postgres
+    password: root
+```
+
+---
+
+## Run Application
+
+```bash
+./mvnw spring-boot:run
+```
+
+Application runs on:
+
+```text
+http://localhost:8085
+```
+
+---
+
+# 🐳 Docker Support
+
+## Build JAR
+
+```bash
+./mvnw clean package
+```
+
+---
+
+## Build Docker Image
+
+```bash
+docker build -t enterpriseauthstarter .
+```
+
+---
+
+## Run Docker Container
+
+```bash
+docker run -p 8085:8085 enterpriseauthstarter
+```
+
+---
+
+# 📘 Swagger Documentation
+
+Swagger UI:
+
+```text
+http://localhost:8085/swagger-ui.html
+```
+
+---
+
+# 🔑 JWT Authentication
+
+## Swagger Authorization Flow
+
+1. Register or Login
+2. Copy generated Access Token
+3. Click **Authorize** in Swagger
+4. Add token:
+
+```text
+Bearer your_access_token
+```
+
+---
+
+# 📌 API Endpoints
+
+## Authentication APIs
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/auth/register` | Register a new user |
+| POST | `/auth/login` | Authenticate user |
+| POST | `/auth/refresh` | Generate new access token |
+| POST | `/auth/logout` | Logout and revoke refresh token |
+
+---
+
+## User APIs
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/users/me` | Get logged-in user details |
+
+---
+
+## Admin APIs
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/admin/dashboard` | Admin-only protected API |
+
+---
+
+# ✅ Standard API Response Format
+
+## Success Response
 
 ```json
 {
@@ -111,85 +296,136 @@ EnterpriseAuth Starter includes validation support using Jakarta Validation.
   "message": "Request successful",
   "data": {}
 }
-Error Response
+```
+
+---
+
+## Error Response
+
+```json
 {
   "success": false,
   "message": "Invalid credentials",
   "data": null
 }
-
-## Run Application
-
-```bash
-./mvnw spring-boot:run
-
-## API Endpoints
-
-### Authentication APIs
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/auth/register` | Register a new user |
-| POST | `/auth/login` | Authenticate user and generate JWT token |
-| GET | `/users/me` | Get logged-in user details (Protected API) |
+```
 
 ---
 
-## JWT Authentication
+# ✅ Sample Requests
 
-1. Register or login using authentication APIs.
-2. Copy the generated JWT token.
-3. Click the **Authorize** button in Swagger UI.
-4. Add token in this format:
-
-```txt
-Bearer your_jwt_token
-
-
-## Sample Register Request
+## Register Request
 
 ```json
 {
-  "username": "string",
-  "email": "string@gmail.com",
+  "username": "jack",
+  "email": "jack@gmail.com",
   "password": "password123"
 }
+```
 
-## Sample Login Request
+---
+
+## Login Request
+
+```json
 {
-  "email": "string@gmail.com",
+  "email": "jack@gmail.com",
   "password": "password123"
 }
+```
 
-## Sample Auth Response
+---
+
+## Authentication Response
+
+```json
 {
-  "token": "eyJhbGciOiJIUzI1NiJ9..."
+  "accessToken": "eyJhbGciOiJIUzI1NiJ9...",
+  "refreshToken": "550e8400-e29b..."
 }
+```
 
-## Screenshots
+---
 
-### Swagger UI
+# ⚠️ Validation Error Response
+
+```json
+{
+  "success": false,
+  "message": "Invalid email format",
+  "data": null
+}
+```
+
+---
+
+# 📸 Screenshots
+
+## Swagger UI
 ![Swagger UI](screenshots/swagger-home.png)
+
 ---
 
-### Register API
+## Register API
 ![Register API](screenshots/register-api.png)
+
 ---
 
-### Login API
+## Login API
 ![Login API](screenshots/login-api.png)
 
-### Protected API Access
+---
+
+## Protected API
 ![Protected API](screenshots/protected-api.png)
 
-### Validation Error Response
+---
+
+## Validation Error
 ![Validation Error](screenshots/validation-error.png)
 
-### Refresh API
+---
+
+## Refresh Token API
 ![Refresh API](screenshots/Refresh-before-logout-api.png)
+
 ![Refresh API](screenshots/Refresh-after-logout-api.png)
 
-### Logout API
+---
+
+## Logout API
 ![Logout API](screenshots/Logout-api.png)
 
+---
 
+# 🚀 Upcoming Features
+
+- Redis Token Blacklist
+- Email Verification
+- Password Reset
+- OAuth2 Google Login
+- GitHub Actions CI/CD
+- Kubernetes Deployment
+- AWS Deployment
+- Multi-Device Session Management
+- Rate Limiting
+- API Gateway Integration
+
+---
+
+# 🤝 Contribution
+
+Contributions, suggestions, and improvements are welcome.
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+# ⭐ Support
+
+If you found this project useful, please consider giving it a ⭐ on GitHub.
