@@ -388,14 +388,14 @@ Bearer your_access_token
 ---
 
 ## Refresh Token API
-![Refresh API](screenshots/Refresh-before-logout-api.png)
+![Refresh API](screenshots/Refresh-before-logout.png)
 
-![Refresh API](screenshots/Refresh-after-logout-api.png)
+![Refresh API](screenshots/Refresh-after-logout.png)
 
 ---
 
 ## Logout API
-![Logout API](screenshots/Logout-api.png)
+![Logout API](screenshots/logout-api.png)
 
 ---
 
