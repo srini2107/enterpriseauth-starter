@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -17,11 +18,13 @@ public class RefreshTokenService {
 
     public RefreshToken createRefreshToken(User user) {
 
-        refreshTokenRepository.findByUser(user)
-                .ifPresent(existing -> {
-                    existing.setRevoked(true);
-                    refreshTokenRepository.save(existing);
-                });
+        List<RefreshToken> existingTokens =
+                refreshTokenRepository.findAllByUser(user);
+
+        existingTokens.forEach(token -> {
+            token.setRevoked(true);
+            refreshTokenRepository.save(token);
+        });
 
         RefreshToken refreshToken = RefreshToken.builder()
                 .token(UUID.randomUUID().toString())
